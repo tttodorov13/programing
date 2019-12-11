@@ -25,14 +25,13 @@ public class InsertionSort {
 
         printIntegerListToUi("Printing unsorted elements: ", a);
 
-        InsertionSort ob = new InsertionSort();
-        ob.sort(a);
+        InsertionSort.sort(a);
 
         printIntegerListToUi("Printing sorted elements: ", a);
     }
 
-    // Function to sort list of integers using insertion sort
-    void sort(List<Integer> a) {
+    // Function to sort list of integers using Insertion Sort
+    public static void sort(List<Integer> a) {
         for (int i = 1; i < a.size(); ++i) {
             int key = a.get(i);
             int j = i - 1;

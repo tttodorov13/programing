@@ -23,8 +23,7 @@ public class BubbleSort {
 
         printIntegerListToUi("Printing unsorted elements: ", a);
 
-        BubbleSort ob = new BubbleSort();
-        ob.sort(a);
+        BubbleSort.sort(a);
 
         printIntegerListToUi("Printing sorted elements: ", a);
     }

@@ -22,15 +22,13 @@ public class CountingSort {
 
         printIntegerListToUi("Printing unsorted elements: ", a);
 
-        CountingSort ob = new CountingSort();
-        ob.sort(a);
+        CountingSort.sort(a);
 
         printIntegerListToUi("Printing sorted elements: ", a);
-
     }
 
-    // Function to sort list of integers using counting sort
-    public void sort(List<Integer> a) {
+    // Function to sort list of integers using Counting Sort
+    public static void sort(List<Integer> a) {
         int max = a.stream().max(Integer::compare).get();
         int min = a.stream().min(Integer::compare).get();
         int range = max - min + 1;

@@ -25,8 +25,7 @@ public class QuickSort {
 
         printIntegerListToUi("Printing unsorted elements: ", a);
 
-        QuickSort ob = new QuickSort();
-        ob.sort(a, 0, a.size() - 1);
+        QuickSort.sort(a, 0, a.size() - 1);
 
         printIntegerListToUi("Printing sorted elements: ", a);
     }
@@ -61,11 +60,11 @@ public class QuickSort {
         return i + 1;
     }
 
-    /* The main function that implements QuickSort()
+    /* The main function that implements Quick Sort
       a --> List to be sorted,
       low  --> Starting index,
       high  --> Ending index */
-    void sort(List<Integer> a, int low, int high) {
+    public static void sort(List<Integer> a, int low, int high) {
         if (low < high) {
             /* pi is partitioning index, arr[pi] is
               now at right place */

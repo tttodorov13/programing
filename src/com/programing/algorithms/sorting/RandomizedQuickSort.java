@@ -67,11 +67,11 @@ public class RandomizedQuickSort {
         return i + 1;
     }
 
-    /* The main function that implements RandomizedQuickSort()
+    /* The main function that implements Randomized Quick Sort
       a --> List to be sorted,
       low  --> Starting index,
       high  --> Ending index */
-    void sort(List<Integer> a, int low, int high) {
+    public static void sort(List<Integer> a, int low, int high) {
         if (low < high) {
             /* pi is partitioning index, arr[pi] is
               now at right place */

@@ -20,15 +20,14 @@ public class HeapSort {
 
         printIntegerListToUi("Printing unsorted elements: ", a);
 
-        HeapSort ob = new HeapSort();
-        ob.sort(a);
+        HeapSort.sort(a);
 
         printIntegerListToUi("Printing sorted elements: ", a);
     }
 
     // To heapify a subtree rooted with node i which is
     // an index in a. n is size of heap
-    private void heapify(List<Integer> a, int n, int i) {
+    private static void heapify(List<Integer> a, int n, int i) {
         int largest = i;    // Initialize largest as root
         int l = 2 * i + 1;  // left = 2*i + 1
         int r = 2 * i + 2;  // right = 2*i + 2
@@ -52,8 +51,8 @@ public class HeapSort {
         }
     }
 
-    // Function to sort list of integers using heap sort
-    public void sort(List<Integer> a) {
+    // Function to sort list of integers using Heap Sort
+    public static void sort(List<Integer> a) {
         int n = a.size();
 
         // Build heap (rearrange list)

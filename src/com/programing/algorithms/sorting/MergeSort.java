@@ -27,8 +27,7 @@ public class MergeSort {
 
         printIntegerListToUi("Printing unsorted elements: ", a);
 
-        MergeSort ob = new MergeSort();
-        ob.sort(a, 0, a.size() - 1);
+        MergeSort.sort(a, 0, a.size() - 1);
 
         printIntegerListToUi("Printing sorted elements: ", a);
     }
@@ -36,7 +35,7 @@ public class MergeSort {
     // Function merges two sub-lists of a.
     // First subarray is a{beg..med}
     // Second subarray is a{med+1..end}
-    private void merge(List<Integer> a, int beg, int med, int end) {
+    private static void merge(List<Integer> a, int beg, int med, int end) {
         // Find sizes of two sub-lists to be merged
         int n1 = med - beg + 1;
         int n2 = end - med;
@@ -84,8 +83,8 @@ public class MergeSort {
         }
     }
 
-    // Function to sort list of integers using merge sort
-    void sort(List<Integer> a, int beg, int end) {
+    // Function to sort list of integers using Merge Sort
+    public static void sort(List<Integer> a, int beg, int end) {
         if (beg < end) {
 			// Find the middle point
             int mid = (beg + end) / 2;

@@ -11,10 +11,10 @@ import static com.programing.algorithms.Utils.printIntegerListToUi;
  * At each Pass check if the Array is
  * already sorted Best Case-Array
  * Already sorted
- *
+ * <p>
  * Time Complexity
  * Best: O(n)	Worst: O(n^2)	Avg: O(n^2)
- *
+ * <p>
  * Space Complexity: O(1)
  * Stable: Yes
  */
@@ -26,13 +26,12 @@ public class ModifiedBubbleSort {
 
         printIntegerListToUi("Printing unsorted elements: ", a);
 
-        ModifiedBubbleSort ob = new ModifiedBubbleSort();
-        ob.sort(a);
+        ModifiedBubbleSort.sort(a);
 
         printIntegerListToUi("Printing sorted elements: ", a);
     }
 
-    // Function to sort list of integers using modified bubble sort
+    // Function to sort list of integers using Modified Bubble Sort
     public static List<Integer> sort(List<Integer> a) {
         int i, j, temp;
         boolean swapped;

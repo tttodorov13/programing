@@ -23,14 +23,13 @@ public class SelectionSort {
 
         printIntegerListToUi("Printing unsorted elements: ", a);
 
-        SelectionSort ob = new SelectionSort();
-        ob.sort(a);
+        SelectionSort.sort(a);
 
         printIntegerListToUi("Printing sorted elements: ", a);
     }
 
-    // Function to sort list of integers using selection sort
-    public void sort(List<Integer> a) {
+    // Function to sort list of integers using Selection Sort
+    public static void sort(List<Integer> a) {
         // One by one move boundary of unsorted subarray
         for (int i = 0; i < a.size() - 1; i++) {
             // Find the minimum element in unsorted array
