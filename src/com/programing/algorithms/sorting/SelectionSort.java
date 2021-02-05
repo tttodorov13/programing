@@ -10,9 +10,9 @@ import static com.programing.algorithms.Utils.printIntegerListToUi;
  * a Single pass
  * <p>
  * Time Complexity
- * Best: O(n^2)	Worst: O(n^2)	Avg: O(n^2)
+ * Best: O(n-1)	Worst: O(n^2)	Avg: O(n^2)
  * <p>
- * Space Complexity: O(1)
+ * Space Complexity: O(n)
  * Stable: Yes
  */
 public class SelectionSort {
