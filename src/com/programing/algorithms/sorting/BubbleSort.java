@@ -19,27 +19,27 @@ public class BubbleSort {
 
     // Driver method
     public static void main(String[] args) {
-        List<Integer> a = initializeIntegerList(args);
+        List<Integer> list = initializeIntegerList(args);
 
-        printIntegerListToUi("Printing unsorted elements: ", a);
+        printIntegerListToUi("Printing unsorted elements: ", list);
 
-        BubbleSort.sort(a);
+        BubbleSort.sort(list);
 
-        printIntegerListToUi("Printing sorted elements: ", a);
+        printIntegerListToUi("Printing sorted elements: ", list);
     }
 
     // Function to sort list of integers using bubble sort
-    public static List<Integer> sort(List<Integer> a) {
+    public static List<Integer> sort(List<Integer> list) {
         int i, j, temp;
-        for (i = 0; i < a.size(); i++) {
-            for (j = 0; j < a.size(); j++) {
-                if (a.get(i) < a.get(j)) {
-                    temp = a.get(i);
-                    a.set(i, a.get(j));
-                    a.set(j, temp);
+        for (i = 0; i < list.size(); i++) {
+            for (j = 0; j < list.size(); j++) {
+                if (list.get(i) < list.get(j)) {
+                    temp = list.get(i);
+                    list.set(i, list.get(j));
+                    list.set(j, temp);
                 }
             }
         }
-        return a;
+        return list;
     }
 }

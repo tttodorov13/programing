@@ -18,35 +18,35 @@ public class CountingSort {
 
     // Driver method
     public static void main(String[] args) {
-        List<Integer> a = initializeIntegerList(args);
+        List<Integer> list = initializeIntegerList(args);
 
-        printIntegerListToUi("Printing unsorted elements: ", a);
+        printIntegerListToUi("Printing unsorted elements: ", list);
 
-        CountingSort.sort(a);
+        CountingSort.sort(list);
 
-        printIntegerListToUi("Printing sorted elements: ", a);
+        printIntegerListToUi("Printing sorted elements: ", list);
     }
 
     // Function to sort list of integers using Counting Sort
-    public static void sort(List<Integer> a) {
-        int max = a.stream().max(Integer::compare).get();
-        int min = a.stream().min(Integer::compare).get();
+    public static void sort(List<Integer> list) {
+        int max = list.stream().max(Integer::compare).get();
+        int min = list.stream().min(Integer::compare).get();
         int range = max - min + 1;
         int count[] = new int[range];
-        int output[] = new int[a.size()];
-        for (int i = 0; i < a.size(); i++)
-            count[a.get(i) - min]++;
+        int output[] = new int[list.size()];
+        for (int i = 0; i < list.size(); i++)
+            count[list.get(i) - min]++;
 
         for (int i = 1; i < count.length; i++)
             count[i] += count[i - 1];
 
-        for (int i = a.size() - 1; i >= 0; i--) {
-            output[count[a.get(i) - min] - 1] = a.get(i);
-            count[a.get(i) - min]--;
+        for (int i = list.size() - 1; i >= 0; i--) {
+            output[count[list.get(i) - min] - 1] = list.get(i);
+            count[list.get(i) - min]--;
         }
 
-        for (int i = 0; i < a.size(); i++) {
-            a.set(i, output[i]);
+        for (int i = 0; i < list.size(); i++) {
+            list.set(i, output[i]);
         }
     }
 }

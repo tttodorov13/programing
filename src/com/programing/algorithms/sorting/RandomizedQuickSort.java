@@ -19,14 +19,14 @@ public class RandomizedQuickSort {
 
     // Driver method
     public static void main(String[] args) {
-        List<Integer> a = initializeIntegerList(args);
+        List<Integer> list = initializeIntegerList(args);
 
-        printIntegerListToUi("Printing unsorted elements: ", a);
+        printIntegerListToUi("Printing unsorted elements: ", list);
 
         RandomizedQuickSort ob = new RandomizedQuickSort();
-        ob.sort(a, 0, a.size() - 1);
+        ob.sort(list, 0, list.size() - 1);
 
-        printIntegerListToUi("Printing sorted elements: ", a);
+        printIntegerListToUi("Printing sorted elements: ", list);
     }
 
     /* This function takes last element as pivot,

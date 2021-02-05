@@ -16,26 +16,26 @@ public class RadixSort {
 
     // Driver method
     public static void main(String[] args) {
-        List<Integer> a = initializeIntegerList(args);
+        List<Integer> list = initializeIntegerList(args);
 
-        printIntegerListToUi("Printing unsorted elements: ", a);
+        printIntegerListToUi("Printing unsorted elements: ", list);
 
         RadixSort ob = new RadixSort();
-        ob.sort(a);
+        ob.sort(list);
 
-        printIntegerListToUi("Printing sorted elements: ", a);
+        printIntegerListToUi("Printing sorted elements: ", list);
     }
 
     // Function to sort list of integers using Radix Sort
-    public void sort(List<Integer> a) {
+    public void sort(List<Integer> list) {
         // Find the maximum number to know number of digits
-        int m = a.stream().max(Integer::compare).get();
+        int m = list.stream().max(Integer::compare).get();
 
         CountingSort countingSort = new CountingSort();
         // Do counting sort for every digit. Note that instead
         // of passing digit number, exp is passed. exp is 10^i
         // where i is current digit number
         for (int exp = 1; m / exp > 0; exp *= 10)
-            countingSort.sort(a);
+            countingSort.sort(list);
     }
 }

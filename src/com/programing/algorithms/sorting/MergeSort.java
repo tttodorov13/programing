@@ -23,19 +23,19 @@ public class MergeSort {
 
     // Driver method
     public static void main(String args[]) {
-        List<Integer> a = initializeIntegerList(args);
+        List<Integer> list = initializeIntegerList(args);
 
-        printIntegerListToUi("Printing unsorted elements: ", a);
+        printIntegerListToUi("Printing unsorted elements: ", list);
 
-        MergeSort.sort(a, 0, a.size() - 1);
+        MergeSort.sort(list, 0, list.size() - 1);
 
-        printIntegerListToUi("Printing sorted elements: ", a);
+        printIntegerListToUi("Printing sorted elements: ", list);
     }
 
-    // Function merges two sub-lists of a.
-    // First subarray is a{beg..med}
-    // Second subarray is a{med+1..end}
-    private static void merge(List<Integer> a, int beg, int med, int end) {
+    // Function merges two sub-lists of list.
+    // First subarray is list{beg..med}
+    // Second subarray is list{med+1..end}
+    private static void merge(List<Integer> list, int beg, int med, int end) {
         // Find sizes of two sub-lists to be merged
         int n1 = med - beg + 1;
         int n2 = end - med;
@@ -46,9 +46,9 @@ public class MergeSort {
 
         // Copy data to temp arrays
         for (int i = 0; i < n1; ++i)
-            Beg.add(i, a.get(beg + i));
+            Beg.add(i, list.get(beg + i));
         for (int j = 0; j < n2; ++j)
-            End.add(j, a.get(med + 1 + j));
+            End.add(j, list.get(med + 1 + j));
 
         // Merge the temp lists
 
@@ -59,10 +59,10 @@ public class MergeSort {
         int k = beg;
         while (i < n1 && j < n2) {
             if (Beg.get(i) <= End.get(j)) {
-                a.set(k, Beg.get(i));
+                list.set(k, Beg.get(i));
                 i++;
             } else {
-                a.set(k, End.get(j));
+                list.set(k, End.get(j));
                 j++;
             }
             k++;
@@ -70,14 +70,14 @@ public class MergeSort {
 
         // Copy remaining elements of Beg if any
         while (i < n1) {
-            a.set(k, Beg.get(i));
+            list.set(k, Beg.get(i));
             i++;
             k++;
         }
 
         // Copy remaining elements of End if any
         while (j < n2) {
-            a.set(k, End.get(j));
+            list.set(k, End.get(j));
             j++;
             k++;
         }

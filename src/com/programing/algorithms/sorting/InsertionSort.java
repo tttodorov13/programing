@@ -21,29 +21,29 @@ public class InsertionSort {
 
     // Driver method
     public static void main(String[] args) {
-        List<Integer> a = initializeIntegerList(args);
+        List<Integer> list = initializeIntegerList(args);
 
-        printIntegerListToUi("Printing unsorted elements: ", a);
+        printIntegerListToUi("Printing unsorted elements: ", list);
 
-        InsertionSort.sort(a);
+        InsertionSort.sort(list);
 
-        printIntegerListToUi("Printing sorted elements: ", a);
+        printIntegerListToUi("Printing sorted elements: ", list);
     }
 
     // Function to sort list of integers using Insertion Sort
-    public static void sort(List<Integer> a) {
-        for (int i = 1; i < a.size(); ++i) {
-            int key = a.get(i);
+    public static void sort(List<Integer> list) {
+        for (int i = 1; i < list.size(); ++i) {
+            int key = list.get(i);
             int j = i - 1;
 
-            /* Move elements of a{0..i-1}, that are
+            /* Move elements of list{0..i-1}, that are
                greater than key, to one position ahead
                of their current position */
-            while (j >= 0 && a.get(j) > key) {
-                a.set(j + 1, a.get(j));
+            while (j >= 0 && list.get(j) > key) {
+                list.set(j + 1, list.get(j));
                 j = j - 1;
             }
-            a.set(j + 1, key);
+            list.set(j + 1, key);
         }
     }
 }

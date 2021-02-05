@@ -21,13 +21,13 @@ public class QuickSort {
 
     // Driver method
     public static void main(String[] args) {
-        List<Integer> a = initializeIntegerList(args);
+        List<Integer> list = initializeIntegerList(args);
 
-        printIntegerListToUi("Printing unsorted elements: ", a);
+        printIntegerListToUi("Printing unsorted elements: ", list);
 
-        QuickSort.sort(a, 0, a.size() - 1);
+        QuickSort.sort(list, 0, list.size() - 1);
 
-        printIntegerListToUi("Printing sorted elements: ", a);
+        printIntegerListToUi("Printing sorted elements: ", list);
     }
 
     /* This function takes last element as pivot,
@@ -36,26 +36,26 @@ public class QuickSort {
        smaller (smaller than pivot) to left of
        pivot and all greater elements to right
        of pivot */
-    private static int partition(List<Integer> a, int low, int high) {
-        int pivot = a.get(high);
+    private static int partition(List<Integer> list, int low, int high) {
+        int pivot = list.get(high);
 
         int i = (low - 1); // index of smaller element
         for (int j = low; j < high; j++) {
             // If current element is smaller than the pivot
-            if (a.get(j) < pivot) {
+            if (list.get(j) < pivot) {
                 i++;
 
-                // swap a.get(i) and a.get(j)
-                int temp = a.get(i);
-                a.set(i, a.get(j));
-                a.set(j, temp);
+                // swap list.get(i) and list.get(j)
+                int temp = list.get(i);
+                list.set(i, list.get(j));
+                list.set(j, temp);
             }
         }
 
-        // swap a.get(i+1) and a.get(high) (or pivot)
-        int temp = a.get(i + 1);
-        a.set(i + 1, a.get(high));
-        a.set(high, temp);
+        // swap list.get(i+1) and list.get(high) (or pivot)
+        int temp = list.get(i + 1);
+        list.set(i + 1, list.get(high));
+        list.set(high, temp);
 
         return i + 1;
     }

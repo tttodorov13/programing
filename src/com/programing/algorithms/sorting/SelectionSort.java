@@ -19,30 +19,30 @@ public class SelectionSort {
 
     // Driver method
     public static void main(String[] args) {
-        List<Integer> a = initializeIntegerList(args);
+        List<Integer> list = initializeIntegerList(args);
 
-        printIntegerListToUi("Printing unsorted elements: ", a);
+        printIntegerListToUi("Printing unsorted elements: ", list);
 
-        SelectionSort.sort(a);
+        SelectionSort.sort(list);
 
-        printIntegerListToUi("Printing sorted elements: ", a);
+        printIntegerListToUi("Printing sorted elements: ", list);
     }
 
     // Function to sort list of integers using Selection Sort
-    public static void sort(List<Integer> a) {
+    public static void sort(List<Integer> list) {
         // One by one move boundary of unsorted subarray
-        for (int i = 0; i < a.size() - 1; i++) {
+        for (int i = 0; i < list.size() - 1; i++) {
             // Find the minimum element in unsorted array
-            int min_index = i;
-            for (int j = i + 1; j < a.size(); j++)
-                if (a.get(j) < a.get(min_index))
-                    min_index = j;
+            int minIndex = i;
+            for (int j = i + 1; j < list.size(); j++)
+                if (list.get(j) < list.get(minIndex))
+                    minIndex = j;
 
             // Swap the found minimum element with the first
             // element
-            int temp = a.get(min_index);
-            a.set(min_index, a.get(i));
-            a.set(i, temp);
+            int temp = list.get(minIndex);
+            list.set(minIndex, list.get(i));
+            list.set(i, temp);
         }
     }
 }

@@ -16,38 +16,38 @@ public class HeapSort {
 
     // Driver method
     public static void main(String[] args) {
-        List<Integer> a = initializeIntegerList(args);
+        List<Integer> list = initializeIntegerList(args);
 
-        printIntegerListToUi("Printing unsorted elements: ", a);
+        printIntegerListToUi("Printing unsorted elements: ", list);
 
-        HeapSort.sort(a);
+        HeapSort.sort(list);
 
-        printIntegerListToUi("Printing sorted elements: ", a);
+        printIntegerListToUi("Printing sorted elements: ", list);
     }
 
-    // To heapify a subtree rooted with node i which is
-    // an index in a. n is size of heap
-    private static void heapify(List<Integer> a, int n, int i) {
+    // To heapify list subtree rooted with node i which is
+    // an index in list. n is size of heap
+    private static void heapify(List<Integer> list, int n, int i) {
         int largest = i;    // Initialize largest as root
         int l = 2 * i + 1;  // left = 2*i + 1
         int r = 2 * i + 2;  // right = 2*i + 2
 
         // If left child is larger than root
-        if (l < n && a.get(l) > a.get(largest))
+        if (l < n && list.get(l) > list.get(largest))
             largest = l;
 
         // If right child is larger than largest so far
-        if (r < n && a.get(r) > a.get(largest))
+        if (r < n && list.get(r) > list.get(largest))
             largest = r;
 
         // If largest is not root
         if (largest != i) {
-            int swap = a.get(i);
-            a.set(i, a.get(largest));
-            a.set(largest, swap);
+            int swap = list.get(i);
+            list.set(i, list.get(largest));
+            list.set(largest, swap);
 
             // Recursively heapify the affected sub-tree
-            heapify(a, n, largest);
+            heapify(list, n, largest);
         }
     }
 
