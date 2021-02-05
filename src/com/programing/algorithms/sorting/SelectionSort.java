@@ -31,18 +31,18 @@ public class SelectionSort {
     // Function to sort list of integers using Selection Sort
     public static void sort(List<Integer> list) {
         // One by one move boundary of unsorted subarray
-        for (int i = 0; i < list.size() - 1; i++) {
+        for (int sortedCount = 0; sortedCount < list.size() - 1; sortedCount++) {
             // Find the minimum element in unsorted array
-            int minIndex = i;
-            for (int j = i + 1; j < list.size(); j++)
+            int minIndex = sortedCount;
+            for (int j = sortedCount + 1; j < list.size(); j++)
                 if (list.get(j) < list.get(minIndex))
                     minIndex = j;
 
             // Swap the found minimum element with the first
             // element
             int temp = list.get(minIndex);
-            list.set(minIndex, list.get(i));
-            list.set(i, temp);
+            list.set(minIndex, list.get(sortedCount));
+            list.set(sortedCount, temp);
         }
     }
 }
