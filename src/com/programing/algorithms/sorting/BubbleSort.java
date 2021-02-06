@@ -12,7 +12,7 @@ import static com.programing.algorithms.Utils.printIntegerListToUi;
  * Time Complexity
  * Best: O(n^2)	Worst: O(n^2)	Avg: O(n^2)
  * <p>
- * Space Complexity: O(1)
+ * Space Complexity: O(n)
  * Stable: Yes
  */
 public class BubbleSort {
@@ -31,8 +31,12 @@ public class BubbleSort {
     // Function to sort list of integers using bubble sort
     public static List<Integer> sort(List<Integer> list) {
         int i, j, temp;
+        // Traverse all elements
         for (i = 0; i < list.size(); i++) {
+            // Traverse all elements without the last one
             for (j = 0; j < list.size(); j++) {
+                // Compare the current element with the next one
+                // If they are not in the right consequence, swap them
                 if (list.get(i) < list.get(j)) {
                     temp = list.get(i);
                     list.set(i, list.get(j));
