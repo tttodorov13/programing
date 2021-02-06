@@ -43,16 +43,16 @@ public class SelectionSortOptimized {
             int minIndex = start;
 
             // Find the indexes of the largest and smallest element
-            for (int index = start; index <= end; index++) {
-                if (list.get(index) > list.get(maxIndex))
-                    maxIndex = index;
-                if (list.get(index) < list.get(minIndex))
-                    minIndex = index;
+            for (int currentIndex = start; currentIndex <= end; currentIndex++) {
+                if (list.get(currentIndex) > list.get(maxIndex))
+                    maxIndex = currentIndex;
+                if (list.get(currentIndex) < list.get(minIndex))
+                    minIndex = currentIndex;
             }
 
             // Swap the found maximum element with the last element
             int temp = list.get(maxIndex);
-            list.set(maxIndex, end);
+            list.set(maxIndex, list.get(end));
             list.set(end, temp);
 
             // If at the end is the minimum element fix minIndex
@@ -62,7 +62,7 @@ public class SelectionSortOptimized {
 
             // Swap the found minimum element with the first element
             temp = list.get(minIndex);
-            list.set(minIndex, start);
+            list.set(minIndex, list.get(start));
             list.set(start, temp);
 
             // Move the end and start by 1
