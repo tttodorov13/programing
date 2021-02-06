@@ -10,9 +10,9 @@ import static com.programing.algorithms.Utils.printIntegerListToUi;
  * elements if they are out of order
  * <p>
  * Time Complexity
- * Best: O(n^2)	Worst: O(n^2)	Avg: O(n^2)
+ * Best: O(n)	Worst: O(n^2)	Avg: O(n^2)
  * <p>
- * Space Complexity: O(1)
+ * Space Complexity: O(n)
  * Stable: Yes
  */
 public class BubbleSortOptimized {
@@ -30,18 +30,24 @@ public class BubbleSortOptimized {
 
     // Function to sort list of integers using bubble sort
     public static List<Integer> sort(List<Integer> list) {
-        int i, j, temp;
-        for (i = 0; i < list.size(); i++) {
-            boolean hasASwap = false;
-            for (j = 0; j < list.size() - 1 - i; j++) {
-                if (list.get(i) < list.get(j)) {
-                    temp = list.get(i);
-                    list.set(i, list.get(j));
-                    list.set(j, temp);
-                    hasASwap = true;
+        // Traverse all elements
+        for (int i = 0; i < list.size(); i++) {
+            // Create flag for sorted list
+            boolean isOrdered = true;
+            // Traverse all elements without the last one
+            for (int j = 0; j < list.size() - 1 - i; j++) {
+                // Compare the current element with the next one
+                // If they are not in the right consequence, swap them
+                if (list.get(j) > list.get(j + 1)) {
+                    int temp = list.get(j);
+                    list.set(j, list.get(j + 1));
+                    list.set(j + 1, temp);
+                    // Mark true if there is a swap
+                    isOrdered = false;
                 }
             }
-            if (!hasASwap)
+            // If list is ordered stop
+            if (isOrdered)
                 break;
         }
         return list;
