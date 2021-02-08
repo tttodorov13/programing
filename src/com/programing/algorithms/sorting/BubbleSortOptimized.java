@@ -30,18 +30,19 @@ public class BubbleSortOptimized {
 
     // Function to sort list of integers using bubble sort
     public static List<Integer> sort(List<Integer> list) {
+        int indexInnerLoop, indexOuterLoop, temp;
+        boolean isOrdered = true;
         // Traverse all elements
-        for (int i = 0; i < list.size(); i++) {
+        for (indexInnerLoop = 0; indexInnerLoop < list.size(); indexInnerLoop++) {
             // Create flag for sorted list
-            boolean isOrdered = true;
             // Traverse all elements without the last one
-            for (int j = 0; j < list.size() - 1 - i; j++) {
+            for (indexOuterLoop = 0; indexOuterLoop < list.size() - 1 - indexInnerLoop; indexOuterLoop++) {
                 // Compare the current element with the next one
                 // If they are not in the right consequence, swap them
-                if (list.get(j) > list.get(j + 1)) {
-                    int temp = list.get(j);
-                    list.set(j, list.get(j + 1));
-                    list.set(j + 1, temp);
+                if (list.get(indexOuterLoop) > list.get(indexOuterLoop + 1)) {
+                    temp = list.get(indexOuterLoop);
+                    list.set(indexOuterLoop, list.get(indexOuterLoop + 1));
+                    list.set(indexOuterLoop + 1, temp);
                     // Mark true if there is a swap
                     isOrdered = false;
                 }

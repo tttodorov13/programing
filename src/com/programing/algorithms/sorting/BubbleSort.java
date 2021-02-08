@@ -30,17 +30,17 @@ public class BubbleSort {
 
     // Function to sort list of integers using bubble sort
     public static List<Integer> sort(List<Integer> list) {
-        int i, j, temp;
+        int indexInnerLoop, indexOuterLoop, temp;
         // Traverse all elements
-        for (i = 0; i < list.size(); i++) {
+        for (indexInnerLoop = 0; indexInnerLoop < list.size(); indexInnerLoop++) {
             // Traverse all elements without the last one
-            for (j = 0; j < list.size(); j++) {
+            for (indexOuterLoop = 0; indexOuterLoop < list.size(); indexOuterLoop++) {
                 // Compare the current element with the next one
                 // If they are not in the right consequence, swap them
-                if (list.get(i) < list.get(j)) {
-                    temp = list.get(i);
-                    list.set(i, list.get(j));
-                    list.set(j, temp);
+                if (list.get(indexInnerLoop) < list.get(indexOuterLoop)) {
+                    temp = list.get(indexInnerLoop);
+                    list.set(indexInnerLoop, list.get(indexOuterLoop));
+                    list.set(indexOuterLoop, temp);
                 }
             }
         }
