@@ -6,13 +6,13 @@ import static com.programing.algorithms.Utils.initializeIntegerList;
 import static com.programing.algorithms.Utils.printIntegerListToUi;
 
 /**
- * k - Range of Numbers in the list.
- * k = 10
+ * K - Range of Numbers in the list.
+ * K = 10
  * <p>
  * Time Complexity
- * Best: O(n*k/s)   Worst: O(2^s*n*k/s) Avg: O(nlgk)
+ * Best: O(N*K/S)   Worst: O(2^S*N*K/S) Avg: O(NlgK)
  * <p>
- * Space Complexity: O(nlgk)
+ * Space Complexity: O(NlgK)
  * Stable: No
  */
 public class RadixSort {

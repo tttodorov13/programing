@@ -7,12 +7,12 @@ import static com.programing.algorithms.Utils.initializeIntegerList;
 import static com.programing.algorithms.Utils.printIntegerListToUi;
 
 /**
- * k = Range of Numbers in the list
+ * K - range of Numbers in the list
  * <p>
  * Time Complexity
- * Best: O(n+k) Worst: O(n+k)   Avg: O(n+k)
+ * Best: O(N+K) Worst: O(N+K)   Avg: O(N+K)
  * <p>
- * Space Complexity: O(n+2^k)
+ * Space Complexity: O(N+2^K)
  * Stable: Yes
  */
 public class CountingSort {

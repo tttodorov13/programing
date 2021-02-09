@@ -10,9 +10,9 @@ import static com.programing.algorithms.Utils.printIntegerListToUi;
  * elements if they are out of order
  * <p>
  * Time Complexity
- * Best: O(n^2)	Worst: O(n^2)	Avg: O(n^2)
+ * Best: O(N^2)	Worst: O(N^2)	Avg: O(N^2)
  * <p>
- * Space Complexity: O(n)
+ * Space Complexity: O(N)
  * Stable: Yes
  */
 public class BubbleSort {
