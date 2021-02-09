@@ -1,6 +1,5 @@
 package com.programing.algorithms.sorting;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.programing.algorithms.Utils.initializeIntegerList;
@@ -21,14 +20,13 @@ public class BucketSort {
 
         printIntegerListToUi("Printing unsorted elements: ", list);
 
-        BucketSort ob = new BucketSort();
-        ob.sort(list);
+        BucketSort.sort(list);
 
         printIntegerListToUi("Printing sorted elements: ", list);
     }
 
     // Function to sort list of integers using Bucket Sort
-    public void sort(List<Integer> list) {
+    public static void sort(List<Integer> list) {
         int max_value = list.stream().max(Integer::compare).get();
         int[] Bucket = new int[max_value + 1];
         int[] sortedA = new int[list.size()];
