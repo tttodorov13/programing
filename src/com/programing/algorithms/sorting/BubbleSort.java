@@ -1,8 +1,10 @@
 package com.programing.algorithms.sorting;
 
+import java.util.Collections;
 import java.util.List;
 
-import static com.programing.algorithms.Utils.*;
+import static com.programing.algorithms.Utils.initializeDoubleList;
+import static com.programing.algorithms.Utils.printListToUi;
 
 /**
  * For each pair of indices, swap the
@@ -29,20 +31,15 @@ public class BubbleSort {
 
     // Function to sort list of doubles using bubble sort
     public static void sort(List<Double> list) {
-        int indexInnerLoop, indexOuterLoop;
-        double temp;
+        int indexOuterLoop, indexInnerLoop;
+
         // Traverse all elements
-        for (indexInnerLoop = 0; indexInnerLoop < list.size(); indexInnerLoop++) {
+        for (indexOuterLoop = 0; indexOuterLoop < list.size(); indexOuterLoop++)
             // Traverse all elements without the last one
-            for (indexOuterLoop = 0; indexOuterLoop < list.size(); indexOuterLoop++) {
+            for (indexInnerLoop = 0; indexInnerLoop < list.size(); indexInnerLoop++)
                 // Compare the current element with the next one
                 // If they are not in the right consequence, swap them
-                if (list.get(indexInnerLoop) < list.get(indexOuterLoop)) {
-                    temp = list.get(indexInnerLoop);
-                    list.set(indexInnerLoop, list.get(indexOuterLoop));
-                    list.set(indexOuterLoop, temp);
-                }
-            }
-        }
+                if (list.get(indexOuterLoop) < list.get(indexInnerLoop))
+                    Collections.swap(list, indexOuterLoop, indexInnerLoop);
     }
 }
