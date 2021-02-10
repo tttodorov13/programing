@@ -2,8 +2,7 @@ package com.programing.algorithms.sorting;
 
 import java.util.List;
 
-import static com.programing.algorithms.Utils.initializeIntegerList;
-import static com.programing.algorithms.Utils.printIntegerListToUi;
+import static com.programing.algorithms.Utils.*;
 
 /**
  * For each pair of indices, swap the
@@ -19,18 +18,19 @@ public class BubbleSortOptimized {
 
     // Driver method
     public static void main(String[] args) {
-        List<Integer> list = initializeIntegerList(args);
+        List<Double> list = initializeDoubleList(args, true);
 
-        printIntegerListToUi("Printing unsorted elements: ", list);
+        printListToUi("Printing unsorted elements: ", list);
 
         BubbleSortOptimized.sort(list);
 
-        printIntegerListToUi("Printing sorted elements: ", list);
+        printListToUi("Printing sorted elements: ", list);
     }
 
-    // Function to sort list of integers using bubble sort
-    public static List<Integer> sort(List<Integer> list) {
-        int indexInnerLoop, indexOuterLoop, temp;
+    // Function to sort list of doubles using bubble sort
+    public static void sort(List<Double> list) {
+        int indexInnerLoop, indexOuterLoop;
+        double temp;
         boolean isOrdered = true;
         // Traverse all elements
         for (indexInnerLoop = 0; indexInnerLoop < list.size(); indexInnerLoop++) {
@@ -51,6 +51,5 @@ public class BubbleSortOptimized {
             if (isOrdered)
                 break;
         }
-        return list;
     }
 }

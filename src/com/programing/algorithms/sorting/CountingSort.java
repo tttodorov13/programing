@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static com.programing.algorithms.Utils.initializeIntegerList;
-import static com.programing.algorithms.Utils.printIntegerListToUi;
+import static com.programing.algorithms.Utils.printListToUi;
 
 /**
  * K - range of Numbers in the list
@@ -19,13 +19,13 @@ public class CountingSort {
 
     // Driver method
     public static void main(String[] args) {
-        List<Integer> list = initializeIntegerList(args);
+        List<Integer> list = initializeIntegerList(args, true);
 
-        printIntegerListToUi("Printing unsorted elements: ", list);
+        printListToUi("Printing unsorted elements: ", list);
 
         CountingSort.sort(list);
 
-        printIntegerListToUi("Printing sorted elements: ", list);
+        printListToUi("Printing sorted elements: ", list);
     }
 
     // Function to sort list of integers using Counting Sort

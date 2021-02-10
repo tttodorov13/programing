@@ -2,8 +2,7 @@ package com.programing.algorithms.sorting;
 
 import java.util.List;
 
-import static com.programing.algorithms.Utils.initializeIntegerList;
-import static com.programing.algorithms.Utils.printIntegerListToUi;
+import static com.programing.algorithms.Utils.*;
 
 /**
  * For each pair of indices, swap the
@@ -19,22 +18,22 @@ public class ShellSort {
 
     // Driver method
     public static void main(String[] args) {
-        List<Integer> list = initializeIntegerList(args);
+        List<Double> list = initializeDoubleList(args, true);
 
-        printIntegerListToUi("Printing unsorted elements: ", list);
+        printListToUi("Printing unsorted elements: ", list);
 
         ShellSort.sort(list);
 
-        printIntegerListToUi("Printing sorted elements: ", list);
+        printListToUi("Printing sorted elements: ", list);
     }
 
-    // Function to sort list of integers using Shell Sort
-    public static void sort(List<Integer> list) {
+    // Function to sort list of doubles using Shell Sort
+    public static void sort(List<Double> list) {
         int n = list.size();
 
         for (int gap = n / 2; gap > 0; gap /= 2) {
             for (int i = gap; i < n; i++) {
-                int key = list.get(i);
+                double key = list.get(i);
                 int j = i;
                 while (j >= gap && list.get(j - gap) > key) {
                     list.set(j, list.get(j - gap));

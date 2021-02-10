@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import static com.programing.algorithms.Utils.initializeIntegerList;
-import static com.programing.algorithms.Utils.printIntegerListToUi;
+import static com.programing.algorithms.Utils.printListToUi;
 
 /**
  * Pivot chosen randomly
@@ -19,14 +19,14 @@ public class RandomizedQuickSort {
 
     // Driver method
     public static void main(String[] args) {
-        List<Integer> list = initializeIntegerList(args);
+        List<Integer> list = initializeIntegerList(args, true);
 
-        printIntegerListToUi("Printing unsorted elements: ", list);
+        printListToUi("Printing unsorted elements: ", list);
 
         RandomizedQuickSort ob = new RandomizedQuickSort();
         ob.sort(list, 0, list.size() - 1);
 
-        printIntegerListToUi("Printing sorted elements: ", list);
+        printListToUi("Printing sorted elements: ", list);
     }
 
     /* This function takes last element as pivot,
@@ -39,10 +39,11 @@ public class RandomizedQuickSort {
         // pivot is chosen randomly
         Random random = new Random();
         int pivot = random.nextInt(high - low) + low;
+        int temp;
 
-        int temp1 = a.get(pivot);
+        temp = a.get(pivot);
         a.set(pivot, a.get(high));
-        a.set(high, temp1);
+        a.set(high, temp);
         pivot = a.get(high);
 
         int i = (low - 1);  // index of smaller element
@@ -53,14 +54,14 @@ public class RandomizedQuickSort {
                 i++;
 
                 // swap a.get(i) and a.get(j)
-                int temp = a.get(i);
+                temp = a.get(i);
                 a.set(i, a.get(j));
                 a.set(j, temp);
             }
         }
 
         // swap a.get(i+1) and a.get(high) (or pivot)
-        int temp = a.get(i + 1);
+        temp = a.get(i + 1);
         a.set(i + 1, a.get(high));
         a.set(high, temp);
 

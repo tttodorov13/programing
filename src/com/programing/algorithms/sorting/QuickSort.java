@@ -2,8 +2,7 @@ package com.programing.algorithms.sorting;
 
 import java.util.List;
 
-import static com.programing.algorithms.Utils.initializeIntegerList;
-import static com.programing.algorithms.Utils.printIntegerListToUi;
+import static com.programing.algorithms.Utils.*;
 
 /**
  * <b>Best Case:<b/> When pivote divide in 2
@@ -21,13 +20,13 @@ public class QuickSort {
 
     // Driver method
     public static void main(String[] args) {
-        List<Integer> list = initializeIntegerList(args);
+        List<Double> list = initializeDoubleList(args, true);
 
-        printIntegerListToUi("Printing unsorted elements: ", list);
+        printListToUi("Printing unsorted elements: ", list);
 
         QuickSort.sort(list, 0, list.size() - 1);
 
-        printIntegerListToUi("Printing sorted elements: ", list);
+        printListToUi("Printing sorted elements: ", list);
     }
 
     /* This function takes last element as pivot,
@@ -36,8 +35,9 @@ public class QuickSort {
        smaller (smaller than pivot) to left of
        pivot and all greater elements to right
        of pivot */
-    private static int partition(List<Integer> list, int low, int high) {
-        int pivot = list.get(high);
+    private static int partition(List<Double> list, int low, int high) {
+        double pivot = list.get(high);
+        double temp;
 
         int i = (low - 1); // index of smaller element
         for (int j = low; j < high; j++) {
@@ -46,14 +46,14 @@ public class QuickSort {
                 i++;
 
                 // swap list.get(i) and list.get(j)
-                int temp = list.get(i);
+                temp = list.get(i);
                 list.set(i, list.get(j));
                 list.set(j, temp);
             }
         }
 
         // swap list.get(i+1) and list.get(high) (or pivot)
-        int temp = list.get(i + 1);
+        temp = list.get(i + 1);
         list.set(i + 1, list.get(high));
         list.set(high, temp);
 
@@ -64,7 +64,7 @@ public class QuickSort {
       a --> List to be sorted,
       low  --> Starting index,
       high  --> Ending index */
-    public static void sort(List<Integer> a, int low, int high) {
+    public static void sort(List<Double> a, int low, int high) {
         if (low < high) {
             /* pi is partitioning index, arr[pi] is
               now at right place */

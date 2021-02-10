@@ -2,8 +2,7 @@ package com.programing.algorithms.sorting;
 
 import java.util.List;
 
-import static com.programing.algorithms.Utils.initializeIntegerList;
-import static com.programing.algorithms.Utils.printIntegerListToUi;
+import static com.programing.algorithms.Utils.*;
 
 /**
  * Very small constant factor even if
@@ -21,19 +20,19 @@ public class InsertionSort {
 
     // Driver method
     public static void main(String[] args) {
-        List<Integer> list = initializeIntegerList(args);
+        List<Double> list = initializeDoubleList(args, true);
 
-        printIntegerListToUi("Printing unsorted elements: ", list);
+        printListToUi("Printing unsorted elements: ", list);
 
         InsertionSort.sort(list);
 
-        printIntegerListToUi("Printing sorted elements: ", list);
+        printListToUi("Printing sorted elements: ", list);
     }
 
-    // Function to sort list of integers using Insertion Sort
-    public static void sort(List<Integer> list) {
+    // Function to sort list of doubles using Insertion Sort
+    public static void sort(List<Double> list) {
         for (int i = 1; i < list.size(); ++i) {
-            int key = list.get(i);
+            double key = list.get(i);
             int j = i - 1;
 
             /* Move elements of list{0..i-1}, that are

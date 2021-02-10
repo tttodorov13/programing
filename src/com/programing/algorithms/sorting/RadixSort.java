@@ -3,7 +3,7 @@ package com.programing.algorithms.sorting;
 import java.util.*;
 
 import static com.programing.algorithms.Utils.initializeIntegerList;
-import static com.programing.algorithms.Utils.printIntegerListToUi;
+import static com.programing.algorithms.Utils.printListToUi;
 
 /**
  * K - Range of Numbers in the list.
@@ -20,15 +20,12 @@ public class RadixSort {
     // Driver method
     public static void main(String[] args) {
         List<Integer> list = initializeIntegerList(args);
-        Integer[] array = new Integer[list.size()];
-        for (int i = 0; i < list.size(); i++)
-            array[i] = list.get(i);
 
-        printIntegerListToUi("Printing unsorted elements: ", list);
+        printListToUi("Printing unsorted elements: ", list);
 
         RadixSort.sort(list);
 
-        printIntegerListToUi("Printing sorted elements: ", list);
+        printListToUi("Printing sorted elements: ", list);
     }
 
     // Function to sort list of integers using Radix Sort

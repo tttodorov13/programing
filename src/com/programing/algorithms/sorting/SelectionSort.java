@@ -2,8 +2,7 @@ package com.programing.algorithms.sorting;
 
 import java.util.List;
 
-import static com.programing.algorithms.Utils.initializeIntegerList;
-import static com.programing.algorithms.Utils.printIntegerListToUi;
+import static com.programing.algorithms.Utils.*;
 
 /**
  * Swap happens only when once in
@@ -19,17 +18,17 @@ public class SelectionSort {
 
     // Driver method
     public static void main(String[] args) {
-        List<Integer> list = initializeIntegerList(args);
+        List<Double> list = initializeDoubleList(args, true);
 
-        printIntegerListToUi("Printing unsorted elements: ", list);
+        printListToUi("Printing unsorted elements: ", list);
 
         SelectionSort.sort(list);
 
-        printIntegerListToUi("Printing sorted elements: ", list);
+        printListToUi("Printing sorted elements: ", list);
     }
 
-    // Function to sort list of integers using Selection Sort
-    public static void sort(List<Integer> list) {
+    // Function to sort list of doubles using Selection Sort
+    public static void sort(List<Double> list) {
         // One by one move boundary of unsorted subarray
         for (int sortedCount = 0; sortedCount < list.size() - 1; sortedCount++) {
             // Find the minimum element in unsorted array
@@ -40,7 +39,7 @@ public class SelectionSort {
 
             // Swap the found minimum element with the first
             // element
-            int temp = list.get(minIndex);
+            double temp = list.get(minIndex);
             list.set(minIndex, list.get(sortedCount));
             list.set(sortedCount, temp);
         }

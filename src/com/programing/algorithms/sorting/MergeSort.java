@@ -3,8 +3,7 @@ package com.programing.algorithms.sorting;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.programing.algorithms.Utils.initializeIntegerList;
-import static com.programing.algorithms.Utils.printIntegerListToUi;
+import static com.programing.algorithms.Utils.*;
 
 /**
  * Best to sort linked list (constant
@@ -23,26 +22,26 @@ public class MergeSort {
 
     // Driver method
     public static void main(String args[]) {
-        List<Integer> list = initializeIntegerList(args);
+        List<Double> list = initializeDoubleList(args, true);
 
-        printIntegerListToUi("Printing unsorted elements: ", list);
+        printListToUi("Printing unsorted elements: ", list);
 
         MergeSort.sort(list, 0, list.size() - 1);
 
-        printIntegerListToUi("Printing sorted elements: ", list);
+        printListToUi("Printing sorted elements: ", list);
     }
 
     // Function merges two sub-lists of list.
     // First subarray is list{beg..med}
     // Second subarray is list{med+1..end}
-    private static void merge(List<Integer> list, int beg, int med, int end) {
+    private static void merge(List<Double> list, int beg, int med, int end) {
         // Find sizes of two sub-lists to be merged
         int n1 = med - beg + 1;
         int n2 = end - med;
 
         // Create temp arrays
-        List<Integer> Beg = new ArrayList<>();
-        List<Integer> End = new ArrayList<>();
+        List<Double> Beg = new ArrayList<>();
+        List<Double> End = new ArrayList<>();
 
         // Copy data to temp arrays
         for (int i = 0; i < n1; ++i)
@@ -83,8 +82,8 @@ public class MergeSort {
         }
     }
 
-    // Function to sort list of integers using Merge Sort
-    public static void sort(List<Integer> a, int beg, int end) {
+    // Function to sort list of doubles using Merge Sort
+    public static void sort(List<Double> a, int beg, int end) {
         if (beg < end) {
 			// Find the middle point
             int mid = (beg + end) / 2;
