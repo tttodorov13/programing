@@ -27,19 +27,16 @@ public class HeapSort {
 
     // Function to sort list of doubles using Heap Sort
     public static void sort(List<Double> list) {
-        int n = list.size();
-        double temp;
+        int listSize = list.size();
 
         // Build heap (rearrange list)
-        for (int i = n / 2 - 1; i >= 0; i--)
-            heapify(list, n, i);
+        for (int i = listSize / 2 - 1; i >= 0; i--)
+            heapify(list, listSize, i);
 
         // One by one extract an element from heap
-        for (int i = n - 1; i >= 0; i--) {
+        for (int i = listSize - 1; i >= 0; i--) {
             // Move current root to end
-            temp = list.get(0);
-            list.set(0, list.get(i));
-            list.set(i, temp);
+            Collections.swap(list, i, 0);
 
             // call max heapify on the reduced heap
             heapify(list, i, 0);
@@ -63,6 +60,7 @@ public class HeapSort {
 
         // If largest is not root
         if (largest != index) {
+            // Move largest up
             Collections.swap(list, index, largest);
 
             // Recursively heapify the affected sub-tree
