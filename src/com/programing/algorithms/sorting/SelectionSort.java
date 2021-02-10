@@ -1,5 +1,6 @@
 package com.programing.algorithms.sorting;
 
+import java.util.Collections;
 import java.util.List;
 
 import static com.programing.algorithms.Utils.*;
@@ -30,18 +31,15 @@ public class SelectionSort {
     // Function to sort list of doubles using Selection Sort
     public static void sort(List<Double> list) {
         // One by one move boundary of unsorted subarray
-        for (int sortedCount = 0; sortedCount < list.size() - 1; sortedCount++) {
+        for (int sortedIndex = 0; sortedIndex < list.size() - 1; sortedIndex++) {
             // Find the minimum element in unsorted array
-            int minIndex = sortedCount;
-            for (int j = sortedCount + 1; j < list.size(); j++)
+            int minIndex = sortedIndex;
+            for (int j = sortedIndex + 1; j < list.size(); j++)
                 if (list.get(j) < list.get(minIndex))
                     minIndex = j;
 
-            // Swap the found minimum element with the first
-            // element
-            double temp = list.get(minIndex);
-            list.set(minIndex, list.get(sortedCount));
-            list.set(sortedCount, temp);
+            // Swap the found minimum element with the first element
+            Collections.swap(list, minIndex, sortedIndex);
         }
     }
 }
