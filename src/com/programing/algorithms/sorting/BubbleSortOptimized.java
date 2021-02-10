@@ -1,8 +1,10 @@
 package com.programing.algorithms.sorting;
 
+import java.util.Collections;
 import java.util.List;
 
-import static com.programing.algorithms.Utils.*;
+import static com.programing.algorithms.Utils.initializeDoubleList;
+import static com.programing.algorithms.Utils.printListToUi;
 
 /**
  * For each pair of indices, swap the
@@ -29,20 +31,18 @@ public class BubbleSortOptimized {
 
     // Function to sort list of doubles using bubble sort
     public static void sort(List<Double> list) {
-        int indexInnerLoop, indexOuterLoop;
-        double temp;
+        int indexOuterLoop, indexInnerLoop;
         boolean isOrdered = true;
+
         // Traverse all elements
-        for (indexInnerLoop = 0; indexInnerLoop < list.size(); indexInnerLoop++) {
+        for (indexOuterLoop = 0; indexOuterLoop < list.size(); indexOuterLoop++) {
             // Create flag for sorted list
             // Traverse all elements without the last one
-            for (indexOuterLoop = 0; indexOuterLoop < list.size() - 1 - indexInnerLoop; indexOuterLoop++) {
+            for (indexInnerLoop = 0; indexInnerLoop < list.size() - 1 - indexOuterLoop; indexInnerLoop++) {
                 // Compare the current element with the next one
                 // If they are not in the right consequence, swap them
-                if (list.get(indexOuterLoop) > list.get(indexOuterLoop + 1)) {
-                    temp = list.get(indexOuterLoop);
-                    list.set(indexOuterLoop, list.get(indexOuterLoop + 1));
-                    list.set(indexOuterLoop + 1, temp);
+                if (list.get(indexInnerLoop) > list.get(indexInnerLoop + 1)) {
+                    Collections.swap(list, indexInnerLoop, indexInnerLoop + 1);
                     // Mark true if there is a swap
                     isOrdered = false;
                 }
