@@ -1,5 +1,6 @@
 package com.programing.algorithms.sorting;
 
+import java.util.Collections;
 import java.util.List;
 
 import static com.programing.algorithms.Utils.*;
@@ -50,9 +51,7 @@ public class SelectionSortOptimized {
             }
 
             // Swap the found maximum element with the last element
-            double temp = list.get(maxIndex);
-            list.set(maxIndex, list.get(end));
-            list.set(end, temp);
+            Collections.swap(list, maxIndex, end);
 
             // If at the end is the minimum element fix minIndex
             // because it is already on the position of maxIndex
@@ -60,9 +59,7 @@ public class SelectionSortOptimized {
                 minIndex = maxIndex;
 
             // Swap the found minimum element with the first element
-            temp = list.get(minIndex);
-            list.set(minIndex, list.get(start));
-            list.set(start, temp);
+            Collections.swap(list, minIndex, start);
 
             // Move the end and start by 1
             // by shrinking with 1 element
