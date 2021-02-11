@@ -6,16 +6,15 @@ import java.util.List;
 import static com.programing.algorithms.Utils.*;
 
 /**
- * Best to sort linked list (constant
- * extra space).
+ * Best to sort linked list (constant extra space).
  * Best for very large number of
  * elements which cannot fit in
  * memory (External sorting)
  * <p>
  * Time Complexity
- * Best: O(n*lg(n))	Worst: O(n*lg(n))	Avg: O(n*lg(n))
+ * Best: O(N*lg(N))	Worst: O(N*lg(N))	Avg: O(N*lg(N))
  * <p>
- * Space Complexity: O(n)
+ * Space Complexity: O(N*lg(N))
  * Stable: Yes
  */
 public class MergeSort {
@@ -33,69 +32,69 @@ public class MergeSort {
         printListToUi("\nPrinting sorted elements: ", list);
     }
 
-    // Function merges two sub-lists of list.
-    // First subarray is list{beg..med}
-    // Second subarray is list{med+1..end}
-    private static void merge(List<Double> list, int beg, int med, int end) {
-        // Find sizes of two sub-lists to be merged
-        int n1 = med - beg + 1;
-        int n2 = end - med;
+    // Function to sort list of doubles using Merge Sort
+    public static void sort(List<Double> list, int begin, int end) {
+        if (begin < end) {
+            // Find the middle point
+            int middle = (begin + end) / 2;
 
-        // Create temp arrays
-        List<Double> Beg = new ArrayList<>();
-        List<Double> End = new ArrayList<>();
+            // Sort first and second halves
+            sort(list, begin, middle);
+            sort(list, middle + 1, end);
 
-        // Copy data to temp arrays
-        for (int i = 0; i < n1; ++i)
-            Beg.add(i, list.get(beg + i));
-        for (int j = 0; j < n2; ++j)
-            End.add(j, list.get(med + 1 + j));
-
-        // Merge the temp lists
-
-        // Initial indexes of first and second sub-lists
-        int i = 0, j = 0;
-
-        // Initial index of merged sub-list
-        int k = beg;
-        while (i < n1 && j < n2) {
-            if (Beg.get(i) <= End.get(j)) {
-                list.set(k, Beg.get(i));
-                i++;
-            } else {
-                list.set(k, End.get(j));
-                j++;
-            }
-            k++;
-        }
-
-        // Copy remaining elements of Beg if any
-        while (i < n1) {
-            list.set(k, Beg.get(i));
-            i++;
-            k++;
-        }
-
-        // Copy remaining elements of End if any
-        while (j < n2) {
-            list.set(k, End.get(j));
-            j++;
-            k++;
+            // Merge the sorted halves
+            merge(list, begin, middle, end);
         }
     }
 
-    // Function to sort list of doubles using Merge Sort
-    public static void sort(List<Double> a, int beg, int end) {
-        if (beg < end) {
-			// Find the middle point
-            int mid = (beg + end) / 2;
+    // Function merges two sub-lists of list.
+    // First subarray is list{begin..middle}
+    // Second subarray is list{middle+1..end}
+    private static void merge(List<Double> list, int begin, int middle, int end) {
+        // Find sizes of two sub-lists to be merged
+        int sizeListBegin = middle - begin + 1;
+        int sizeListEnd = end - middle;
 
-			// Sort first and second halves
-            sort(a, beg, mid);
-            sort(a, mid + 1, end);
+        // Initial indexes of begin and end sub-lists
+        int indexListBegin = 0;
+        int indexListEnd = 0;
 
-			// Merge the sorted halves
-            merge(a, beg, mid, end);
-        }
+        // Initial index of merged sub-list
+        int indexListMerged = begin;
+
+        // Create temp arrays
+        List<Double> listBegin = new ArrayList<>();
+        List<Double> listEnd = new ArrayList<>();
+
+        // Copy data to temp arrays
+        while (indexListBegin < sizeListBegin)
+            listBegin.add(list.get(begin + indexListBegin++));
+        while (indexListEnd < sizeListEnd)
+            listEnd.add(list.get(middle + 1 + indexListEnd++));
+
+        // Merge the temp lists
+
+        // Set indexes of begin and end sub-lists
+        indexListBegin = 0;
+        indexListEnd = 0;
+
+        // Add elements from listBegin and listEnd ordered by size
+        while (indexListBegin < sizeListBegin && indexListEnd < sizeListEnd)
+            if (listBegin.get(indexListBegin) <= listEnd.get(indexListEnd))
+                list.set(indexListMerged++, listBegin.get(indexListBegin++));
+            else
+                list.set(indexListMerged++, listEnd.get(indexListEnd++));
+
+        // Copy remaining elements of listBegin if any.
+        // Then increment index of merged sub-list and
+        // increment index of begin sub-list
+        while (indexListBegin < sizeListBegin)
+            list.set(indexListMerged++, listBegin.get(indexListBegin++));
+
+        // Copy remaining elements of listEbd if any.
+        // Then increment index of merged sub-list and
+        // increment index of end sub-list
+        while (indexListEnd < sizeListEnd)
+            list.set(indexListMerged++, listEnd.get(indexListEnd++));
     }
 }
