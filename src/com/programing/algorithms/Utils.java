@@ -84,9 +84,9 @@ public class Utils {
 
         for (int i = 0; i < size; i++)
             if (hasNegatives)
-                list.add(random.nextInt() % 2 == 0 ? random.nextInt(MAX) - random.nextDouble() : -random.nextInt(MAX) + random.nextDouble());
+                list.add(Math.round(random.nextInt() % 2 == 0 ? random.nextInt(MAX) - random.nextDouble() : -random.nextInt(MAX) + random.nextDouble()) / 100.0);
             else
-                list.add(Double.valueOf(random.nextInt(MAX) - random.nextDouble()));
+                list.add(Math.round(Double.valueOf(random.nextInt(MAX) - random.nextDouble())) / 100.0);
 
         return list;
     }
