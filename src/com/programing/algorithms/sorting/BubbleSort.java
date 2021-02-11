@@ -24,9 +24,11 @@ public class BubbleSort {
 
         printListToUi("Printing unsorted elements: ", list);
 
+        long begin = System.nanoTime();
         BubbleSort.sort(list);
+        System.out.printf("Time elapsed: %f s", (System.nanoTime() - begin) / 1000000000.0);
 
-        printListToUi("Printing sorted elements: ", list);
+        printListToUi("\nPrinting sorted elements: ", list);
     }
 
     // Function to sort list of doubles using bubble sort

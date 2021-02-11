@@ -24,9 +24,11 @@ public class QuickSort {
 
         printListToUi("Printing unsorted elements: ", list);
 
+        long begin = System.nanoTime();
         QuickSort.sort(list, 0, list.size() - 1);
+        System.out.printf("Time elapsed: %f s", (System.nanoTime() - begin) / 1000000000.0);
 
-        printListToUi("Printing sorted elements: ", list);
+        printListToUi("\nPrinting sorted elements: ", list);
     }
 
     /* This function takes last element as pivot,
