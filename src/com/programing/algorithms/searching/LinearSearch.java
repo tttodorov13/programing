@@ -1,27 +1,52 @@
 package com.programing.algorithms.searching;
 
+import java.util.List;
 import java.util.Scanner;
 
+import static com.programing.algorithms.Utils.initializeDoubleList;
+import static com.programing.algorithms.Utils.printListToUi;
+
+/**
+ * Time Complexity
+ * Best: O(0)	Worst: O(N)   Avg: O(N)
+ * <p>
+ * Space Complexity: O(N)
+ * Stable: Yes
+ */
 public class LinearSearch {
 
-	public static void main(String[] args) {
-		int[] a = { 10, 23, 15, 8, 4, 3, 25, 30, 34, 2, 19 };
-		System.out.printf("Print array: ");
-		for (int i = 0; i < a.length; i++) {
-			System.out.print(a[i] + " ");
-		}
-		int item, flag = 0;
-		Scanner sc = new Scanner(System.in);
-		System.out.printf("\n\nEnter Item: ");
-		item = sc.nextInt();
-		for (int i = 0; i < a.length; i++) {
-			if (a[i] == item) {
-				flag = i + 1;
-				break;
-			} else flag = 0;
-		}
-		if (flag != 0) {
-			System.out.println("\nItem found at location: " + flag);
-		} else System.out.println("\nItem not found!");
-	}
+    public static void main(String[] args) {
+        List<Double> list = initializeDoubleList(args, true);
+
+        printListToUi("Printing elements: ", list);
+
+        Scanner scanner = new Scanner(System.in);
+        Object item;
+        int index = 0;
+
+        while (index >= 0) {
+            System.out.printf("\nEnter Item: ");
+            item = scanner.nextDouble();
+
+            long begin = System.nanoTime();
+            index = search(list, item);
+            System.out.printf("Time elapsed: %f s", (System.nanoTime() - begin) / 1000000000.0);
+
+            if (index >= 0)
+                System.out.println("\nItem found at index: " + index);
+            else
+                System.out.println("\nItem not found!");
+        }
+    }
+
+    // Function to linearly search for element
+    public static int search(List list, Object o) {
+        for (int i = 0; i < list.size() - 1; i++)
+            // If found return its first index
+            if (o.equals(list.get(i)))
+                return i;
+
+        // If not found return -1
+        return -1;
+    }
 }
