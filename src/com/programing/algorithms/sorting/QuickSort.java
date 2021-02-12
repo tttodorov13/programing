@@ -1,19 +1,20 @@
 package com.programing.algorithms.sorting;
 
+import java.util.Collections;
 import java.util.List;
 
 import static com.programing.algorithms.Utils.*;
 
 /**
- * <b>Best Case:<b/> When pivote divide in 2
- * equal halves
- * <b>Worst Case:</b> Array already sorted -
- * 1/n-1 partition
+ * <b>Best Case:<b/>
+ * When pivot divide in 2 equal halves
+ * <b>Worst Case:</b>
+ * List already sorted 1/n-1 partition
  * <p>
  * Time Complexity
- * Best: O(n*lg(n))	Worst: O(n*lg(n))	Avg: O(n*lg(n))
+ * Best: O(N*lg(N))	Worst: O(N*lg(N))	Avg: O(N*lg(N))
  * <p>
- * Space Complexity: O(1)
+ * Space Complexity: O(N)
  * Stable: Yes
  */
 public class QuickSort {
@@ -31,51 +32,42 @@ public class QuickSort {
         printListToUi("\nPrinting sorted elements: ", list);
     }
 
-    /* This function takes last element as pivot,
-       places the pivot element at its correct
-       position in sorted array, and places all
-       smaller (smaller than pivot) to left of
-       pivot and all greater elements to right
-       of pivot */
-    private static int partition(List<Double> list, int low, int high) {
-        double pivot = list.get(high);
-        double temp;
-
-        int i = (low - 1); // index of smaller element
-        for (int j = low; j < high; j++) {
-            // If current element is smaller than the pivot
-            if (list.get(j) < pivot) {
-                i++;
-
-                // swap list.get(i) and list.get(j)
-                temp = list.get(i);
-                list.set(i, list.get(j));
-                list.set(j, temp);
-            }
-        }
-
-        // swap list.get(i+1) and list.get(high) (or pivot)
-        temp = list.get(i + 1);
-        list.set(i + 1, list.get(high));
-        list.set(high, temp);
-
-        return i + 1;
-    }
-
-    /* The main function that implements Quick Sort
-      a --> List to be sorted,
-      low  --> Starting index,
-      high  --> Ending index */
-    public static void sort(List<Double> a, int low, int high) {
+    // Function to sort list of doubles using Quick Sort
+    // list --> List to be sorted,
+    // low  --> Starting index,
+    // high  --> Ending index
+    public static void sort(List<Double> list, int low, int high) {
         if (low < high) {
-            /* pi is partitioning index, arr[pi] is
-              now at right place */
-            int pi = partition(a, low, high);
+            // indexPartitioning is partitioning index,
+            // list.get(indexPartitioning) is
+            // now at right place
+            int indexPartitioning = partition(list, low, high);
 
             // Recursively sort elements before
             // partition and after partition
-            sort(a, low, pi - 1);
-            sort(a, pi + 1, high);
+            sort(list, low, indexPartitioning - 1);
+            sort(list, indexPartitioning + 1, high);
         }
+    }
+
+    // Function to take last element as pivot,
+    // places the pivot element at its correct
+    // position in sorted list, and places all
+    // smaller (smaller than pivot) to left of
+    // pivot and all greater elements to right
+    // of pivot
+    private static int partition(List<Double> list, int low, int high) {
+        // index of smaller element
+        int indexSmallerElement = low - 1;
+        for (int indexCurrentElement = low; indexCurrentElement < high; indexCurrentElement++)
+            // If current element is smaller than the pivot "list.get(high)"
+            if (list.get(indexCurrentElement) < list.get(high))
+                // swap list.get(indexSmallerElement) and list.get(indexCurrentElement)
+                Collections.swap(list, ++indexSmallerElement, indexCurrentElement);
+
+        // swap list.get(++indexSmallerElement) and the pivot "list.get(high)"
+        Collections.swap(list, ++indexSmallerElement, high);
+
+        return indexSmallerElement;
     }
 }
