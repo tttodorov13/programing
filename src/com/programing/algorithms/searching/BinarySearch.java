@@ -17,6 +17,7 @@ import static com.programing.algorithms.Utils.printListToUi;
  */
 public class BinarySearch {
 
+    // Driver method
     public static void main(String[] args) {
         List<Double> list = initializeDoubleList(args, true);
 
@@ -37,7 +38,7 @@ public class BinarySearch {
             item = scanner.nextDouble();
 
             begin = System.nanoTime();
-            index = search(list, 0, list.size() - 1, item);
+            index = BinarySearch.search(list, 0, list.size() - 1, item);
             System.out.printf("Time elapsed: %f s", (System.nanoTime() - begin) / 1000000000.0);
 
             if (index >= 0)
@@ -47,7 +48,7 @@ public class BinarySearch {
         }
     }
 
-    // Function to binary search for element
+    // Function to search list of doubles using Binary Search
     public static int search(List<Double> list, int begin, int end, double item) {
         if (end >= begin) {
             // Find the middle element

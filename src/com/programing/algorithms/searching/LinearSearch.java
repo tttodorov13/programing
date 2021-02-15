@@ -15,6 +15,7 @@ import static com.programing.algorithms.Utils.printListToUi;
  */
 public class LinearSearch {
 
+    // Driver method
     public static void main(String[] args) {
         List<Double> list = initializeDoubleList(args, true);
 
@@ -29,7 +30,7 @@ public class LinearSearch {
             item = scanner.nextDouble();
 
             long begin = System.nanoTime();
-            index = search(list, item);
+            index = LinearSearch.search(list, item);
             System.out.printf("Time elapsed: %f s", (System.nanoTime() - begin) / 1000000000.0);
 
             if (index >= 0)
@@ -39,7 +40,7 @@ public class LinearSearch {
         }
     }
 
-    // Function to linearly search for element
+    // Function to search list of doubles using Linear Search
     public static int search(List list, Object o) {
         for (int i = 0; i < list.size() - 1; i++)
             // If found return its first index
