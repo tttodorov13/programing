@@ -1,5 +1,6 @@
 package com.programing.algorithms.sorting;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static com.programing.algorithms.Utils.*;
@@ -33,18 +34,17 @@ public class InsertionSort {
 
     // Function to sort list of doubles using Insertion Sort
     public static void sort(List<Double> list) {
-        for (int i = 1; i < list.size(); ++i) {
-            double key = list.get(i);
-            int j = i - 1;
+        for (int indexOuterLoop = 1; indexOuterLoop < list.size(); ++indexOuterLoop) {
+            double key = list.get(indexOuterLoop);
+            int indexInnerLoop = indexOuterLoop - 1;
 
-            /* Move elements of list{0..i-1}, that are
-               greater than key, to one position ahead
-               of their current position */
-            while (j >= 0 && list.get(j) > key) {
-                list.set(j + 1, list.get(j));
-                j = j - 1;
-            }
-            list.set(j + 1, key);
+            // Move elements of list{0..indexOuterLoop-1}, that are
+            // greater than key, to one position ahead
+            // of their current position
+            while (indexInnerLoop >= 0 && list.get(indexInnerLoop) > key)
+                list.set(indexInnerLoop + 1, list.get(indexInnerLoop--));
+
+            list.set(++indexInnerLoop, key);
         }
     }
 }
