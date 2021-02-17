@@ -1,11 +1,11 @@
 package com.programing.designPatterns.J2EE.TransferObject;
 
-public class StudentVO {
+public class StudentTransferObject {
 
 	private String name;
 	private int rollNo;
 
-	StudentVO(String name, int rollNo) {
+	StudentTransferObject(String name, int rollNo) {
 		this.name = name;
 		this.rollNo = rollNo;
 	}

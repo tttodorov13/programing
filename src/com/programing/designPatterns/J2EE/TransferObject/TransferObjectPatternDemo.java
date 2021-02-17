@@ -3,15 +3,15 @@ package com.programing.designPatterns.J2EE.TransferObject;
 public class TransferObjectPatternDemo {
 
 	public static void main(String[] args) {
-		StudentBO studentBusinessObject = new StudentBO();
+		StudentBusinessObject studentBusinessObject = new StudentBusinessObject();
 
 		// print all students
-		for (StudentVO student : studentBusinessObject.getAllStudents()) {
+		for (StudentTransferObject student : studentBusinessObject.getAllStudents()) {
 			System.out.println("Student: [RollNo : " + student.getRollNo() + ", Name : " + student.getName() + " ]");
 		}
 
 		// update student
-		StudentVO student = studentBusinessObject.getAllStudents().get(0);
+		StudentTransferObject student = studentBusinessObject.getAllStudents().get(0);
 		student.setName("Michael");
 		studentBusinessObject.updateStudent(student);
 

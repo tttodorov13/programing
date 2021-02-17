@@ -3,34 +3,34 @@ package com.programing.designPatterns.J2EE.TransferObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentBO {
+public class StudentBusinessObject {
 
 	//list is working as a database
-	List<StudentVO> students;
+	List<StudentTransferObject> students;
 
-	public StudentBO() {
-		students = new ArrayList<StudentVO>();
-		StudentVO student1 = new StudentVO("Robert", 0);
-		StudentVO student2 = new StudentVO("John", 1);
+	public StudentBusinessObject() {
+		students = new ArrayList<StudentTransferObject>();
+		StudentTransferObject student1 = new StudentTransferObject("Robert", 0);
+		StudentTransferObject student2 = new StudentTransferObject("John", 1);
 		students.add(student1);
 		students.add(student2);
 	}
 
-	public void deleteStudent(StudentVO student) {
+	public void deleteStudent(StudentTransferObject student) {
 		students.remove(student.getRollNo());
 		System.out.println("Student: Roll No " + student.getRollNo() + ", deleted from database");
 	}
 
 	//retrive list of students from the database
-	public List<StudentVO> getAllStudents() {
+	public List<StudentTransferObject> getAllStudents() {
 		return students;
 	}
 
-	public StudentVO getStudent(int rollNo) {
+	public StudentTransferObject getStudent(int rollNo) {
 		return students.get(rollNo);
 	}
 
-	public void updateStudent(StudentVO student) {
+	public void updateStudent(StudentTransferObject student) {
 		students.get(student.getRollNo()).setName(student.getName());
 		System.out.println("Student: Roll No " + student.getRollNo() + ", updated in the database");
 	}
