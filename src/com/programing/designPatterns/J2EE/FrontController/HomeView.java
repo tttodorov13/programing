@@ -1,4 +1,4 @@
-package com.programing.designPatterns.J2EE.FrontControllerPattern;
+package com.programing.designPatterns.J2EE.FrontController;
 
 public class HomeView {
 
