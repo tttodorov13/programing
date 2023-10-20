@@ -10,13 +10,11 @@ public class SingletonClass {
     }
 
     // Get the only object available with
-	// lazy Initialization
+    // lazy Initialization
     public static SingletonClass getInstance() {
-        if (INSTANCE == null) {
-            synchronized (SingletonClass.class) {
-                if (INSTANCE == null)
-                    INSTANCE = new SingletonClass();
-            }
+        synchronized (SingletonClass.class) {
+            if (INSTANCE == null)
+                INSTANCE = new SingletonClass();
         }
         return INSTANCE;
     }
